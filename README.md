@@ -9,6 +9,22 @@ Please create a branch, based on your name, commit and push to save your work.
 
 ## Output
 ```txt
+Char Array To String
+Byte: 8-bit (-128 - 127), example: 10
+Short: 16-bit (-32,768 - 32,767), example: 300
+Int: 32-bit (-2,147,483,648 - 2,147,483,647), example: 20000
+Long: 64-bit (-9,223,372,036,854,775,808 - 9,223,372,036,854,775,807), example: 900000
+Float: 32-bit ~7 digit precision, example: 5.750000
+Double: 64-bit ~15 digit precision, example: 19.990000
+Char: 16-bit Unicode character, example: A
+Boolean: true or false, example: true
+Implicit Casting: int (100) -> double (100.00)
+Explicit Casting: double (99.99) -> int (99)
+Data Loss Casting: int (130) -> byte (-126)
+Char to Int Casting: char ('Z') -> int (90)
+Int to Char Casting: int (66) -> char ('B')
+
+Process finished with exit code 0
 
 ```
 
