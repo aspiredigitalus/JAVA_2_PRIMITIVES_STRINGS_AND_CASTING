@@ -208,4 +208,171 @@ long id = 123456789L;
 
 ---
 
-By understanding each primitive type and its characteristics, you can use Java’s memory and performance model more efficiently.
+By understanding each primitive type and its characteristics, you can
+use Java’s memory and performance model more efficiently.
+
+## Casting
+
+Type casting in Java allows you to convert a value from one primitive data
+type to another. Casting can be **implicit (widening)** or **explicit (narrowing)**
+depending on whether data loss is possible.
+
+---
+
+## Widening Casting (Implicit Casting)
+
+**Definition:**  
+Widening occurs when converting a smaller primitive type into a larger type.  
+This is **safe**, automatic, and **does not require a cast**.
+
+**Order of widening:**
+```
+byte → short → int → long → float → double
+          char → int
+```
+
+**Characteristics:**
+- No data loss
+- Automatically handled by the compiler
+- Converts to a type with equal or greater storage size
+
+**Example:**
+```java
+int i = 42;
+double d = i;   // implicit widening
+```
+
+---
+
+## Narrowing Casting (Explicit Casting)
+
+**Definition:**  
+Narrowing occurs when converting a larger primitive type into a smaller one.  
+This requires a **manual cast** and may cause **data loss**.
+
+**Order of narrowing:**
+```
+double → float → long → int → short → byte
+                      int → char
+```
+
+**Characteristics:**
+- Must be explicitly cast
+- High risk of overflow or truncation
+- May wrap values or drop fractional parts
+
+**Example:**
+```java
+double d = 42.9;
+int i = (int) d;   // explicit narrowing → value becomes 42
+```
+
+---
+
+## Data Loss Examples
+
+### 1. **Truncation (dropping decimals)**
+```java
+double d = 9.99;
+int i = (int) d;  // i = 9
+```
+
+### 2. **Overflow**
+```java
+int x = 130;
+byte b = (byte) x;  // b = -126 (overflow)
+```
+
+### 3. **Character narrowing**
+```java
+int i = 70000;
+char c = (char) i;  // wraps into Unicode range
+```
+
+---
+
+## Primitive Casting Rules by Type
+
+### `byte`
+- **Widening:** `byte → short → int → long → float → double`
+- **Narrowing:** From any larger type → must cast
+```java
+byte b = (byte) 300; // overflow
+```
+
+### `short`
+- **Widening:** `short → int → long → float → double`
+- **Narrowing:** Must cast from long, float, double
+```java
+short s = (short) 50000; // overflow
+```
+
+### `char`
+- **Widening:** `char → int → long → float → double`
+- **Narrowing:** Requires cast from int, long, float, double
+```java
+char c = (char) 1000;
+```
+
+### `int`
+- **Widening:** `int → long → float → double`
+- **Narrowing:** Must cast to byte, short, char
+```java
+int i = 1000;
+byte b = (byte) i;
+```
+
+### `long`
+- **Widening:** `long → float → double`
+- **Narrowing:** Must cast to int, short, char, byte
+```java
+long l = 9999999999L;
+int i = (int) l;  // overflow
+```
+
+### `float`
+- **Widening:** `float → double`
+- **Narrowing:** Must cast to any integer type
+```java
+float f = 3.5f;
+int i = (int) f; // truncation
+```
+
+### `double`
+- **Highest type** → only narrowing possible
+```java
+double d = 123.456;
+float f = (float) d;
+```
+
+---
+
+## Casting Summary Table
+
+| From → To | Widening (Implicit) | Narrowing (Explicit) |
+|-----------|---------------------|------------------------|
+| byte → short | ✔ | ✘ |
+| byte → int | ✔ | ✘ |
+| byte → long | ✔ | ✘ |
+| byte → float | ✔ | ✘ |
+| byte → double | ✔ | ✘ |
+| int → byte | ✘ | ✔ |
+| long → int | ✘ | ✔ |
+| double → int | ✘ | ✔ |
+| double → float | ✘ | ✔ |
+
+---
+
+## Best Practices
+
+- Prefer widening conversions whenever possible.
+- Avoid narrowing unless absolutely necessary.
+- Always check expected ranges before narrowing.
+- Be mindful of overflow and fractional truncation.
+- When working with user input, validate before casting.
+
+---
+
+Casting is essential in Java, especially when working with mixed
+numeric data types. Understanding widening vs narrowing ensures
+you avoid silent bugs and data corruption.
