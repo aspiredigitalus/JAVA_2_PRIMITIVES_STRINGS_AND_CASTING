@@ -39,20 +39,20 @@ You can iterate over the characters of a String using a variety of methods:
 
 ### Transforming a String
 The String class provides methods to transform its content:  
-- Convert to uppercase or lowercase:
-    ```String upper = str.toUpperCase();```
+- Convert to uppercase or lowercase:   
+    ```String upper = str.toUpperCase();```   
     ```String lower = str.toLowerCase();```
-  - Replace characters or substrings:
-  ```String replaced = str.replace('e', 'a');```
-    - Trim whitespace:
-    ```String trimmed = str.trim();```
+  - Replace characters or substrings:   
+  ```String replaced = str.replace('e', 'a');```   
+    - Trim whitespace:   
+    ```String trimmed = str.trim();```   
 ### Accessing Parts of a String
 You can access specific parts of a String using methods like:  
-- Substring:
+- Substring:   
     ```String sub = str.substring(1, 4); // Extracts "xam"```
-- Index of a character or substring:
+- Index of a character or substring:   
     ```int index = str.indexOf('a');```
-- Check if it starts or ends with a specific substring:
+- Check if it starts or ends with a specific substring:   
     ```boolean starts = str.startsWith("ex");```
     ```boolean ends = str.endsWith("le");```
 
