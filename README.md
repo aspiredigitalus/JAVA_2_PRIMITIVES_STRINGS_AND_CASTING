@@ -57,3 +57,155 @@ You can access specific parts of a String using methods like:
     ```boolean ends = str.endsWith("le");```
 
 By understanding these features, you can effectively work with String objects in Java.
+
+## Primitives
+
+In Java, **primitive types** are the most basic data types.  
+They are **not objects** and they store their values directly in memory.  
+Java provides **8 primitive types**, each designed for specific purposes.
+
+This guide explains each primitive type, how to declare it, and why some require extra suffixes like `f` and `L`.
+
+---
+
+### 1. `byte`
+**Description:**  
+An 8-bit signed integer used to save memory in large arrays.
+
+**Range:**  
+`-128` to `127`
+
+**Example:**
+```java
+byte b = 10;
+```
+
+---
+
+### 2. `short`
+**Description:**  
+A 16-bit signed integer. Larger than `byte` but smaller than `int`.
+
+**Range:**  
+`-32,768` to `32,767`
+
+**Example:**
+```java
+short s = 300;
+```
+
+---
+
+### 3. `int`
+**Description:**  
+A 32-bit signed integer. This is Java’s **default integer type**.
+
+**Range:**  
+`-2,147,483,648` to `2,147,483,647`
+
+**Example:**
+```java
+int i = 20000;
+```
+
+---
+
+### 4. `long`
+**Description:**  
+A 64-bit signed integer used when a wider range than `int` is required.
+
+**Range:**  
+`-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`
+
+**Additional Character:**  
+Use `L` to mark a long literal — otherwise the number is treated as an `int`.
+
+**Example:**
+```java
+long l = 900000L;
+```
+
+---
+
+### 5. `float`
+**Description:**  
+A 32-bit floating-point number. Used for decimals with **less precision**.
+
+**Range:**  
+Approximately `±3.40282347E+38F`
+
+**Additional Character:**  
+Use `f` because decimal literals default to `double`.
+
+**Example:**
+```java
+float f = 5.75f;
+```
+
+---
+
+### 6. `double`
+**Description:**  
+A 64-bit floating-point number. This is Java’s **default decimal type** and offers higher precision than `float`.
+
+**Range:**  
+Approximately `±1.79769313486231570E+308`
+
+**Example:**
+```java
+double d = 19.99;
+```
+
+---
+
+### 7. `char`
+**Description:**  
+A 16-bit Unicode character for storing a **single character**.
+
+**Range:**  
+`0` to `65,535` (unsigned)
+
+**Example:**
+```java
+char c = 'A';
+```
+
+---
+
+### 8. `boolean`
+**Description:**  
+Represents a logical value: `true` or `false`.
+
+**Range:**  
+`true` or `false`
+
+**Example:**
+```java
+boolean bool = true;
+```
+
+---
+
+## Why Some Types Require Extra Characters
+
+### `f` for float
+Decimal literals default to **double**, so adding `f` tells the compiler:
+> “treat this number as a float.”
+
+Example:
+```java
+float f = 3.14f;
+```
+
+### `L` for long
+Integer literals default to **int**, so adding `L` tells the compiler:
+> “this value should be stored as a long.”
+
+Example:
+```java
+long id = 123456789L;
+```
+
+---
+
+By understanding each primitive type and its characteristics, you can use Java’s memory and performance model more efficiently.
